@@ -70,7 +70,7 @@ public class Pizza {
 
         if(addBag) bill += "Paperbag Added: "+20+"\n";
 
-        bill += "Total Price: " + getPrice();
+        bill += "Total Price: " + getPrice()+"\n"git ;
 
         return this.bill;
     }
