@@ -9,6 +9,7 @@ public class Pizza {
     boolean addCheese;
     boolean addToppings;
     boolean addBag;
+    boolean billcreated;
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
@@ -23,6 +24,7 @@ public class Pizza {
         this.addCheese = false;
         this.addToppings = false;
         this.addBag = false;
+        this.billcreated = false;
 
     }
 
@@ -60,6 +62,7 @@ public class Pizza {
 
     public String getBill(){
         // your code goes here
+        if(billcreated) return "";
         if(isVeg) bill += "Base Price Of The Pizza: " + 300+"\n";
         else bill += "Base Price Of The Pizza: " + 400+"\n";
 
@@ -71,6 +74,7 @@ public class Pizza {
         if(addBag) bill += "Paperbag Added: "+20+"\n";
 
         bill += "Total Price: " + getPrice()+"\n" ;
+        this.billcreated = true;
 
         return this.bill;
     }
