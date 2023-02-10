@@ -4,33 +4,29 @@ public class Pizza {
 
     private int price;
     private Boolean isVeg;
-    private String bill;
-
     private int toppings;
+    private String bill;
+    boolean  ischeesadded;
+    boolean istoppings;
+    boolean isbiilCreated;
+    boolean istakeAway;
 
-    boolean addCheese;
-    boolean addToppings;
-    boolean addBag;
-    boolean billCreated;
+
+
 
     public Pizza(Boolean isVeg){
         this.isVeg = isVeg;
         // your code goes here
-        if(isVeg){
-            this.price += 300;
-            this.toppings = 70;
+        if (isVeg)
+        {
+            this.price =300;
+            this.toppings =70;
         }
-        else{
-            this.price += 400;
-            this.toppings = 120;
+        else {
+            this.price=400;
+            this.toppings=120;
         }
-        this.bill = "";
-        this.addCheese = false;
-        this.addToppings = false;
-        this.addBag = false;
-        this.billCreated = false;
-
-        bill += "Base Price Of The Pizza: " + this.price +"\n";
+        this.bill ="Base Price Of The Pizza: "+this.price +"\n";
 
     }
 
@@ -40,41 +36,44 @@ public class Pizza {
 
     public void addExtraCheese(){
         // your code goes here
-        if(!addCheese){
+        if (!ischeesadded) {
             this.price += 80;
-            addCheese = true;
+            this.ischeesadded = true;
         }
+
+
     }
 
     public void addExtraToppings(){
         // your code goes here
-        if(!addToppings){
-            this.price += this.toppings;
-            addToppings=true;
+        if (!istoppings){
+            this.price+=this.toppings;
+            this.istoppings= true;
         }
-
     }
 
     public void addTakeaway(){
         // your code goes here
-        if(!addBag){
-            addBag=true;
-            this.price += 20;
+        if (!istakeAway)
+        {
+            this.price+=20;
+            this.istakeAway=true;
         }
     }
 
-    public String getBill(){
+    public String getBill() {
         // your code goes here
-        if(!this.billCreated) {
-            if(addCheese) bill += "Extra Cheese Added: "+80+"\n";
-
-            if(addToppings) bill += "Extra Toppings Added: "+this.toppings+"\n";
-
-            if(addBag) bill += "Paperbag Added: "+20+"\n";
-
-            bill += "Total Price: " + getPrice()+"\n" ;
-            this.billCreated = true;
-
+        if (!isbiilCreated) {
+            if (ischeesadded) {
+                this.bill += "Extra Cheese Added: 80"+"\n";
+            }
+            if (istoppings) {
+                this.bill += "Extra Toppings Added: "+ this.toppings +"\n";
+            }
+            if (istakeAway) {
+                this.bill += "Paperbag Added: "+20+"\n";
+            }
+            this.bill += "Total Price: "+this.price+"\n";
             return this.bill;
         }
         return "";
